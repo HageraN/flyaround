@@ -1,7 +1,7 @@
-WCSCoavBundle\Entity\Reservation:
+WCSCoavBundle\Entity\User:
     type: entity
     table: null
-    repositoryClass: WCSCoavBundle\Repository\ReservationRepository
+    repositoryClass: WCSCoavBundle\Repository\UserRepository
     id:
         id:
             type: integer
@@ -12,11 +12,9 @@ WCSCoavBundle\Entity\Reservation:
         name:
             type: string
             length: 255
-        nbSeats:
-            type: integer
     lifecycleCallbacks: {  }
 
     manyToMany:
-        passengers:
-            targetEntity: User
-            mappedBy: reservation
+        reservations:
+            targetEntity: WCSCoavBundle\Entity\Reservation
+            inversedBy: passengers
